@@ -3,6 +3,6 @@ module.exports = defineConfig({
   lintOnSave: false,
   filenameHashing: false,
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/Atlas/'
+    ? '/atlas/'
     : '/'
 })
