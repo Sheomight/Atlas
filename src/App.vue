@@ -9,7 +9,7 @@
   <TestsAd class="container" />
   <Courses class="container" />
   <Media class="container" />
-  <Footer class="container"></Footer>
+  <AppFooter class="container"></AppFooter>
   <Social />
 </template>
 
@@ -23,13 +23,13 @@ import TopList from '@/components/posts/TopList.vue';
 import TestsAd from '@/components/tests/TestsAd.vue';
 import Courses from '@/components/courses/Courses.vue';
 import Media from '@/components/Media.vue';
-import Footer from '@/components/Footer.vue';
+import AppFooter from '@/components/AppFooter.vue';
 export default {
   components: {
     Navbar, Welcome, Social,
     ThemeFilter, PostList, TopList,
     TestsAd, Courses, Media,
-    Footer
+    AppFooter
   },
   data() {
     return {
