@@ -307,6 +307,11 @@ export default {
         width: 210px;
         background-color: #fff;
 
+        &:hover {
+            background-color: #5a30c3;
+            color: #fff;
+        }
+
         &_purple {
             background: rgba(118, 69, 239, 1);
             color: #fff;

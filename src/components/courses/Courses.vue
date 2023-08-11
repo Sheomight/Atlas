@@ -87,6 +87,10 @@ export default {
         background: #000;
         color: #fff;
         margin-left: auto;
+
+        &:hover {
+            background: #4d4d4d;
+        }
     }
 
     &__text {

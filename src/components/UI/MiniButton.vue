@@ -18,5 +18,6 @@ export default {
     height: 38px;
     border-radius: 50%;
     background-color: inherit;
+    border: none;
 }
 </style>

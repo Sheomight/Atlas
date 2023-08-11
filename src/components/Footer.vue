@@ -127,6 +127,10 @@ export default {
         width: 50px;
         height: 50px;
 
+        &:hover {
+            background-color: #727272;
+        }
+
         &_tg {
             background-image: url('@/assets/images/social/tg.svg');
             background-position: 50% 50%;
@@ -147,9 +151,6 @@ export default {
             background-repeat: no-repeat;
         }
 
-        &:hover {
-            background-color: #727272;
-        }
     }
 
 
@@ -170,6 +171,11 @@ export default {
 
         & a {
             cursor: pointer;
+
+            &:hover {
+                color: #4c4c4c;
+                text-decoration: underline;
+            }
         }
     }
 
