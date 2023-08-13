@@ -303,13 +303,23 @@ p {
 
 .container {
   padding: 0 80px;
+
+  @media (max-width: 1600px) {
+    padding: 0 60px;
+  }
+
+  @media (max-width: 1280px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0 40px;
+  }
 }
 
 .title {
-  font-family: 'DINPro medium';
   margin: 0;
-  font-size: clamp(40px, 8vw, 80px);
-  line-height: clamp(50px, 10vw, 100px);
+  font-weight: 500;
 }
 
 .media {
@@ -324,6 +334,7 @@ p {
   display: flex;
   justify-content: space-between;
   padding-top: 40px;
-  column-gap: 37px;
+  padding-bottom: 40px;
+  gap: 37px;
 }
 </style>

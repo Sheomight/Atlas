@@ -23,7 +23,7 @@ export default {
     data() {
         return {
             page: 1,
-            limit: 12,
+            limit: 16,
             first: 0,
             totalPages: 0
         }
@@ -51,11 +51,6 @@ export default {
             return [...this.posts].slice(this.first, this.limit * this.page)
         },
     },
-    // watch: {
-    //     posts: function () {
-    //         this.totalPages = this.getTotalPages()
-    //     }
-    // },
     mounted() {
         this.getTotalPages()
     },
@@ -64,8 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 .posts {
-    flex-basis: 65%;
-    margin-bottom: 40px;
+    flex-basis: 80%;
 
     &__inner {
         display: flex;
@@ -92,6 +86,12 @@ export default {
         &_current {
             color: #fff;
             background-color: black;
+        }
+    }
+
+    @media (max-width: 1800px) {
+        &__inner {
+            gap: 30px;
         }
     }
 }

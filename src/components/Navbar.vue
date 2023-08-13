@@ -63,7 +63,7 @@ export default {
     }
 
     &__navigation {
-        flex-basis: 50%;
+        flex-basis: 60%;
     }
 
     &__action {
@@ -74,11 +74,17 @@ export default {
     &__search {
         flex-basis: 60%;
     }
+
+    @media (max-width: 1400px) {
+        &__navigation {
+            flex-basis: 70%;
+        }
+    }
 }
 
 .navigation {
     display: flex;
-    justify-content: space-between;
+    gap: 40px;
 
     &__link {
         color: #fff;
@@ -90,6 +96,10 @@ export default {
             transform: scale(1.1);
             font-weight: 600;
         }
+    }
+
+    @media (max-width: 1500px) {
+        gap: 20px;
     }
 }
 

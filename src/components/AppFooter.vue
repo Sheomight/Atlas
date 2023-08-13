@@ -77,6 +77,7 @@ export default {
         min-height: 800px;
         height: 1px;
         display: flex;
+        justify-content: space-between;
         column-gap: 40px;
     }
 
