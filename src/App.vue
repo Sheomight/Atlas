@@ -1,9 +1,9 @@
 <template>
-  <Navbar />
+  <Navbar v-model="searchValue" />
   <Welcome />
   <ThemeFilter v-model="selectedTheme" :posts="posts" />
   <main class="blogs container">
-    <PostList :posts="sortedPosts" />
+    <PostList :posts="sortedAndSearchedPosts" />
     <TopList :posts="sortForPopular" />
   </main>
   <TestsAd class="container" />
@@ -234,7 +234,8 @@ export default {
         },
 
       ],
-      selectedTheme: ''
+      selectedTheme: '',
+      searchValue: '',
     }
   },
   computed: {
@@ -245,6 +246,9 @@ export default {
       if (this.selectedTheme) {
         return [...this.posts].filter(post => post.theme == this.selectedTheme)
       } else return this.posts
+    },
+    sortedAndSearchedPosts() {
+      return this.sortedPosts.filter(post => post.title.toLowerCase().includes(this.searchValue.toLowerCase()))
     }
   }
 }

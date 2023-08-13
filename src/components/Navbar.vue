@@ -17,7 +17,7 @@
                 </div>
             </template>
             <div v-else class="header__search search">
-                <button class="search__btn search__btn_searching"></button>
+                <button class="search__btn search__btn_searching" @click="setSearchValue"></button>
                 <input type="text" class="search__input" placeholder="Поиск" v-model="searchValue">
                 <button class="search__btn search__btn_close" @click="setSearching"></button>
             </div>
@@ -35,7 +35,12 @@ export default {
     },
     methods: {
         setSearching() {
+            this.searchValue = '';
             this.isSearching = !this.isSearching;
+            this.setSearchValue();
+        },
+        setSearchValue() {
+            this.$emit('update:modelValue', this.searchValue);
         }
     }
 }
