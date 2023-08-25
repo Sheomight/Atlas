@@ -43,6 +43,14 @@
                     </div>
                     <my-button class="test__btn test__btn_purple">Подробнее</my-button>
                 </div>
+                <div class="tests__item test test_men">
+                    <h2 class="test__title"><span>ДНК</span> тест</h2>
+                    <div class="test__price price">
+                        <span>от <span class="price__old">16 900 ₽</span></span>
+                        <span class="price__new">10 000 ₽</span>
+                    </div>
+                    <my-button class="test__btn test__btn_purple">Подробнее</my-button>
+                </div>
             </div>
         </div>
     </div>
@@ -266,6 +274,28 @@ export default {
         }
     }
 
+    &_men {
+        background: url('@/assets/images/tests/testbg5.jpg') no-repeat 40% 50%;
+
+        & .test__title {
+            font-size: 34px;
+            line-height: normal;
+            text-align: left;
+
+            & span {
+                color: #7645EF;
+            }
+        }
+
+        & .price__old::after {
+            content: '-35%';
+        }
+
+        @media (max-width: 1500px) {
+            display: none;
+        }
+    }
+
     &__title {
         font-family: 'Druk Wide Cy Web';
         font-size: 17px;
@@ -306,6 +336,11 @@ export default {
         z-index: 2;
         width: 210px;
         background-color: #fff;
+
+        &:hover {
+            background-color: #5a30c3;
+            color: #fff;
+        }
 
         &_purple {
             background: rgba(118, 69, 239, 1);

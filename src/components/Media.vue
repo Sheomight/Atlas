@@ -76,6 +76,10 @@ export default {
         & a {
             color: #7645EF;
             text-decoration: underline;
+
+            &:hover {
+                color: #492b94;
+            }
         }
     }
 }
@@ -155,9 +159,17 @@ export default {
         border: 1px solid rgba(255, 255, 255, 0.30);
         color: #fff;
 
+        &:hover {
+            background: #4d4d4d4f;
+        }
+
         &_black {
             color: #fff;
             background: #000;
+
+            &:hover {
+                background: #4d4d4d;
+            }
         }
     }
 

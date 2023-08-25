@@ -17,8 +17,9 @@
                 </div>
             </template>
             <div v-else class="header__search search">
-                <button class="search__btn search__btn_searching"></button>
-                <input type="text" class="search__input" placeholder="Поиск" v-model="searchValue">
+                <button class="search__btn search__btn_searching" @click="setSearchValue"></button>
+                <input type="text" class="search__input" placeholder="Поиск" v-model="searchValue"
+                    v-on:keyup.enter="setSearchValue">
                 <button class="search__btn search__btn_close" @click="setSearching"></button>
             </div>
         </div>
@@ -35,7 +36,12 @@ export default {
     },
     methods: {
         setSearching() {
+            this.searchValue = '';
             this.isSearching = !this.isSearching;
+            this.setSearchValue();
+        },
+        setSearchValue() {
+            this.$emit('update:modelValue', this.searchValue);
         }
     }
 }
@@ -58,7 +64,7 @@ export default {
     }
 
     &__navigation {
-        flex-basis: 50%;
+        flex-basis: 60%;
     }
 
     &__action {
@@ -69,11 +75,17 @@ export default {
     &__search {
         flex-basis: 60%;
     }
+
+    @media (max-width: 1400px) {
+        &__navigation {
+            flex-basis: 70%;
+        }
+    }
 }
 
 .navigation {
     display: flex;
-    justify-content: space-between;
+    gap: 40px;
 
     &__link {
         color: #fff;
@@ -82,8 +94,13 @@ export default {
         text-decoration: none;
 
         &:hover {
-            text-decoration: underline;
+            transform: scale(1.1);
+            font-weight: 600;
         }
+    }
+
+    @media (max-width: 1500px) {
+        gap: 20px;
     }
 }
 

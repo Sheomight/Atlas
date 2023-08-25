@@ -1,15 +1,15 @@
 <template>
-  <Navbar />
+  <Navbar v-model="searchValue" />
   <Welcome />
   <ThemeFilter v-model="selectedTheme" :posts="posts" />
   <main class="blogs container">
-    <PostList :posts="sortedPosts" />
+    <PostList :posts="sortedAndSearchedPosts" />
     <TopList :posts="sortForPopular" />
   </main>
   <TestsAd class="container" />
   <Courses class="container" />
   <Media class="container" />
-  <Footer class="container"></Footer>
+  <AppFooter class="container"></AppFooter>
   <Social />
 </template>
 
@@ -23,13 +23,13 @@ import TopList from '@/components/posts/TopList.vue';
 import TestsAd from '@/components/tests/TestsAd.vue';
 import Courses from '@/components/courses/Courses.vue';
 import Media from '@/components/Media.vue';
-import Footer from '@/components/Footer.vue';
+import AppFooter from '@/components/AppFooter.vue';
 export default {
   components: {
     Navbar, Welcome, Social,
     ThemeFilter, PostList, TopList,
     TestsAd, Courses, Media,
-    Footer
+    AppFooter
   },
   data() {
     return {
@@ -234,7 +234,8 @@ export default {
         },
 
       ],
-      selectedTheme: ''
+      selectedTheme: '',
+      searchValue: '',
     }
   },
   computed: {
@@ -245,6 +246,9 @@ export default {
       if (this.selectedTheme) {
         return [...this.posts].filter(post => post.theme == this.selectedTheme)
       } else return this.posts
+    },
+    sortedAndSearchedPosts() {
+      return this.sortedPosts.filter(post => post.title.toLowerCase().includes(this.searchValue.toLowerCase()))
     }
   }
 }
@@ -299,13 +303,23 @@ p {
 
 .container {
   padding: 0 80px;
+
+  @media (max-width: 1600px) {
+    padding: 0 60px;
+  }
+
+  @media (max-width: 1280px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 900px) {
+    padding: 0 40px;
+  }
 }
 
 .title {
-  font-family: 'DINPro medium';
   margin: 0;
-  font-size: clamp(40px, 8vw, 80px);
-  line-height: clamp(50px, 10vw, 100px);
+  font-weight: 500;
 }
 
 .media {
@@ -320,6 +334,7 @@ p {
   display: flex;
   justify-content: space-between;
   padding-top: 40px;
-  column-gap: 37px;
+  padding-bottom: 40px;
+  gap: 37px;
 }
 </style>

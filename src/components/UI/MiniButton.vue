@@ -11,12 +11,13 @@ export default {
 </script>
 
 
-<style lang="scss" >
+<style lang="scss">
 .action-btn {
     cursor: pointer;
     width: 38px;
     height: 38px;
     border-radius: 50%;
     background-color: inherit;
+    border: none;
 }
 </style>

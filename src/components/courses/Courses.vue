@@ -27,6 +27,14 @@
                         своего здоровья</p>
                 </div>
                 <div class="list__item">
+                    <div class="list__card list__card_book card">
+                        <h3 class="card__title">секретная жизнь бактерий</h3>
+                        <p class="card__info">Электронная книга</p>
+                    </div>
+                    <p class="card__description">Узнайте, как сделать кишечные бактерии счастливее и как позаботиться о
+                        своей микробиоте.</p>
+                </div>
+                <div class="list__item">
                     <div class="list__card list__card_pink card card_later">
                         <h3 class="card__title">как устроено пищеварение</h3>
                         <p class="card__info">8 уроков &#xb7 8 писем</p>
@@ -87,6 +95,10 @@ export default {
         background: #000;
         color: #fff;
         margin-left: auto;
+
+        &:hover {
+            background: #4d4d4d;
+        }
     }
 
     &__text {
@@ -107,6 +119,12 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        @media (max-width: 1500px) {
+            &:has(>.list__card_book) {
+                display: none;
+            }
+        }
     }
 
     &__card {
@@ -119,6 +137,10 @@ export default {
 
         &_salad {
             background: url('@/assets/images/courses/bg2.jpg') 0 110% no-repeat;
+        }
+
+        &_book {
+            background: url('@/assets/images/courses/bg5.jpg') 0 110% no-repeat;
         }
 
         &_pink {

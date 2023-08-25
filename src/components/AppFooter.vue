@@ -77,6 +77,7 @@ export default {
         min-height: 800px;
         height: 1px;
         display: flex;
+        justify-content: space-between;
         column-gap: 40px;
     }
 
@@ -110,11 +111,12 @@ export default {
         }
 
         &_btns {
-            flex-basis: 38%;
+            flex: 1 1 35%;
             display: flex;
             gap: 15px;
             justify-content: flex-end;
         }
+
     }
 
     &__text {
@@ -126,6 +128,10 @@ export default {
         background-color: #000;
         width: 50px;
         height: 50px;
+
+        &:hover {
+            background-color: #727272;
+        }
 
         &_tg {
             background-image: url('@/assets/images/social/tg.svg');
@@ -147,9 +153,6 @@ export default {
             background-repeat: no-repeat;
         }
 
-        &:hover {
-            background-color: #727272;
-        }
     }
 
 
@@ -170,6 +173,11 @@ export default {
 
         & a {
             cursor: pointer;
+
+            &:hover {
+                color: #4c4c4c;
+                text-decoration: underline;
+            }
         }
     }
 

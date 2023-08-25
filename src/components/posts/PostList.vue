@@ -1,14 +1,12 @@
 <template>
     <div class="posts">
         <div class="posts__inner">
-            <template v-for="(post, index) in posts" :key="post.id">
-                <PostItem :postInfo="post" v-if="(index < limit * page) && (index >= lasts)" />
-            </template>
+            <PostItem v-for="post in getPagePosts" :key="post.id" :postInfo="post" />
             <my-button class="posts__btn" @click="loadMorePosts">Показать ещё</my-button>
             <div class="posts__pages">
                 <mini-button class="posts__page" :class="{
                     'posts__page_current': page == this.page
-                }" v-for="page in totalPages" :key="page" @click="changePage(page)">
+                }" v-for=" page  in  totalPages " :key="page" @click="changePage(page)">
                     {{ page }}
                 </mini-button>
             </div>
@@ -25,9 +23,8 @@ export default {
     data() {
         return {
             page: 1,
-            limit: 12,
-            lasts: 0,
-            totalPages: 0
+            limit: 16,
+            totalPages: 0,
         }
     },
     props: {
@@ -41,23 +38,26 @@ export default {
             this.totalPages = Math.ceil(this.posts.length / this.limit)
         },
         changePage(pageNumber) {
-            this.page = pageNumber,
-                this.lasts = this.limit * (pageNumber - 1)
+            this.page = pageNumber;
         },
         loadMorePosts() {
             this.limit += 12
         }
     },
+    computed: {
+        getPagePosts() {
+            return [...this.posts].slice((this.page - 1) * this.limit, this.limit * this.page)
+        },
+    },
     mounted() {
         this.getTotalPages()
-    },
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .posts {
-    flex-basis: 65%;
-    margin-bottom: 40px;
+    flex-basis: 80%;
 
     &__inner {
         display: flex;
@@ -84,6 +84,12 @@ export default {
         &_current {
             color: #fff;
             background-color: black;
+        }
+    }
+
+    @media (max-width: 1800px) {
+        &__inner {
+            gap: 30px;
         }
     }
 }
